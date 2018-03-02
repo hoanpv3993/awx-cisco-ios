@@ -11,6 +11,6 @@
   
   - debug: msg="{{ hostname.stdout}}"
   
-- name: change hostname
-  ios_config:
-    lines: hostname {{ new_hostname }}
+   - name: change hostname
+     ios_config:
+       lines: hostname {{ new_hostname }}
