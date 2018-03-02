@@ -5,7 +5,7 @@
   
   tasks:
 
-  - name: show hostname
+  - name: show old hostname
     ios_command:
       commands: show running-config | include hostname
 
@@ -16,6 +16,3 @@
   - name: show new hostname
     ios_command:
       commands: show running-config | include hostname
-      register: current_host
-
-  - debug: msg="{{ current_host.stdout}}"
