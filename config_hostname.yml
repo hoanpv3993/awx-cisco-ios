@@ -19,6 +19,5 @@
       commands: show running-config | include hostname
     register: new_host
     
-  - debug: 
-     - old="{{ old_host.stdout}}"
-     - new="{{ new_host.stdout}}"
+  - debug: msg="{{ old_host.stdout}}"
+  - debug: msg="{{ new_host.stdout}}"
