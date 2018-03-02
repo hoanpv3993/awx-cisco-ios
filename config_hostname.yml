@@ -8,12 +8,14 @@
   - name: show hostname
     ios_command:
       commands: show running-config | include hostname
+
   - name: configure top level configuration
     ios_config:
       lines: hostname {{ new_hostname }}
+
   - name: show new hostname
     ios_command:
       commands: show running-config | include hostname
       register: current_host
-    
+
   - debug: msg="{{ current_host.stdout}}"
