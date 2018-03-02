@@ -16,3 +16,6 @@
   - name: show new hostname
     ios_command:
       commands: show running-config | include hostname
+    register: new_host
+    
+  - debug: msg="{{ new_host.stdout}}"
