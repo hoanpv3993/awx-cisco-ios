@@ -9,7 +9,7 @@
     ios_command:
       commands: show running-config | include hostname
     
-  - name: configure top level configuration
+  - name: Configure change hostname Device
     ios_config:
       lines: hostname {{ new_hostname }}
 
@@ -18,4 +18,4 @@
       commands: show running-config | include hostname
     register: new_host
     
-  - debug: new_host="{{ new_host.stdout }}"
+  - debug: msg="{{ new_host.stdout }}"
