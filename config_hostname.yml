@@ -4,13 +4,11 @@
   connection: local
   
   tasks:
+
   - name: show hostname
     ios_command:
       commands: show running-config | include hostname
-    register: hostname
-  
-  - debug: msg="{{ hostname.stdout}}"
-  
+
    - name: change hostname
      ios_config:
        lines: hostname {{ new_hostname }}
