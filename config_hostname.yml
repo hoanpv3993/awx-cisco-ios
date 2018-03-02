@@ -8,7 +8,8 @@
   - name: show old hostname
     ios_command:
       commands: show running-config | include hostname
-
+    register: old_host
+    
   - name: configure top level configuration
     ios_config:
       lines: hostname {{ new_hostname }}
@@ -18,4 +19,6 @@
       commands: show running-config | include hostname
     register: new_host
     
-  - debug: msg="{{ new_host.stdout}}"
+  - debug: 
+     - old="{{ old_host.stdout}}"
+     - new="{{ new_host.stdout}}"
