@@ -9,4 +9,4 @@
       commands: show clock
     register: clock
   
-  - debug: {{ clock.stdout}}
+  - debug: msg="{{ clock.stdout}}"
